@@ -1,6 +1,6 @@
 <!-- topnav -->
 <div class=" bg-white py-2">
-  <div class="row bg-dark fixed-top col-lg-9 ml-auto mb-3">
+  <div class="row bg-dark fixed-top col-lg-12 ml-auto mb-3">
     <div class="col-md-4">
       <h4 class="text-light text-uppercase mb-0">Dashborad</h4>
     </div>
@@ -31,22 +31,13 @@
           </a>
         </li>
         <li class="nav-item">
-          <a href="#" class="nav-link">
-            <i class="fas fa-sign-out-alt text-danger fa-lg"></i>
+          <a href="{{ route('user.logout') }}" class="nav-link">
+            <i class="fas fa-sign-out-alt text-danger fa-lg"></i>Log out
           </a>
         </li>
       </ul>
     </div>
     <!-- end of icon -->
   </div>
-
-  <div class="col-2">
-
-  </div>
-
-  <div class="container text-center my-5 col-10">
-    @yield('body')
-  </div>
-
 </div>
 <!-- end of topnav -->

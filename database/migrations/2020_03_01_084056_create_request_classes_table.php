@@ -19,16 +19,8 @@ class CreateRequestClassesTable extends Migration
             $table->string('Day');
             $table->string('RegistrationNumber');
             $table->string('ShortName');
-            $table->string('EightToNine');
-            $table->string('NineToTen');
-            $table->string('TenToEleven');
-            $table->string('ElevenToTwelve');
-            $table->string('TwelveToOne');
-            $table->string('OneToTwo');
-            $table->string('TwoToThree');
-            $table->string('ThreeToFour');
-            $table->string('FourToFive');
-
+            $table->string('Time');
+            
             $table->timestamps();
         });
     }

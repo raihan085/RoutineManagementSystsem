@@ -1,7 +1,7 @@
 @extends('Web.Admin.Pages.index')
 
 @section('body')
-    <div class="m-3">
+    <div class="col-lg-9 col-md-9 mt-5 d-flex justify-content-center">
       <form action="CreateRoutineSubmit" method="post">
         @csrf
         <div class="form-group ">

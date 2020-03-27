@@ -1,5 +1,8 @@
-
 @extends('Web.Student.Pages.index')
+
+@section('head')
+$reg
+@endsection
 
 @section('body')
     <div class="container m-3 p-3">

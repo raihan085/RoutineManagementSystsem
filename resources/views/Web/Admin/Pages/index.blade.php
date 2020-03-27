@@ -8,9 +8,8 @@
 
 </head>
 <body>
+
   @include('Web.Admin.layout.AdminnavBar')
-
-
   @include('Web.Admin.Partials.JS')
 
 </body>

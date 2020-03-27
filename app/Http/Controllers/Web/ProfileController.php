@@ -1,21 +1,16 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Web;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Input;
+use App\Http\Controllers\Controller;
 
 use App\Profile;
 
 class ProfileController extends Controller
 {
-    public function index(Request $req)
+    public function home()
     {
-      print_r($req->input());
-    }
-
-    public function profile_insert(Request $req)
-    {
-
+      return redirect()->route('admin.user.request');
     }
 }

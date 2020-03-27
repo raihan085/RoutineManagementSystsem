@@ -3,7 +3,7 @@
 @section('body')
     <div class="container m-3 p-3">
 
-    <table class="table table-bordered table-hover m-5 table-sm">
+    <table class="table  table-hover m-5 table-bordered table-sm">
       <thead class="thead-light">
         <tr>
           <th scope="col">Day</th>

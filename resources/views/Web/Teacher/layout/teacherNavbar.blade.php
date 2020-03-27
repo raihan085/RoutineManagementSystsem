@@ -9,45 +9,37 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
-        <!--
-        <li class="nav-item active">
-          <a class="nav-link" href="{{ URL::to('author/teacher') }}">Home <span class="sr-only">(current)</span></a>
-        </li>
-      -->
         <li class="nav-item">
-          <a class="nav-link" href="{{ URL::to('author/teacher/Name/EH') }}">Home</a>
+          <a class="nav-link" href="{{ URL::to('author/teacher') }}">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{ URL::to('author/teacher/FullRoutine') }}">Full Routine</a>
+          <a class="nav-link" href="{{ URL::to('author/teacher/name') }}">Self Routine</a>
+          <!-- {{ route('url','passing value ei jaygay teacher er shortname hobe ') }}  -->
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="{{ URL::to('author/teacher/Day') }}">Day Routine</a>
+          <a class="nav-link" href="{{ URL::to('author/teacher/day')}}">Daily Routine</a>
         </li>
+
         <li class="nav-item">
-          <a class="nav-link" href="#">Request Class</a>
+          <a class="nav-link" href="{{ URL::to('author/teacher/requestclass')}}">Request Class</a>
         </li>
       </ul>
 
       <ul class="navbar-nav ml-auto m-3">
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Enamul Islam
+
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" href="#">Profile</a>
-            <a class="dropdown-item" href="#">Log Out</a>
+            <a href="{{ URL::to('user/index/logout') }}" class="dropdown-item"></a>Log Out
+
             <a class="dropdown-item" href="#">Change Password</a>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="#">Contact</a>
           </div>
         </li>
       </ul>
-      <!--
-      <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-      </form>
-    -->
     </div>
   </nav>

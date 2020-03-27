@@ -1,21 +1,28 @@
 <?php
 
-namespace App\Http\Controllers\Web\Auth;
+namespace App\Http\Controllers\Web\Admin\Auth;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Model\Web\;
+use App\Model\Web\Auth\Profile;
+use App\Model\Web\Auth\PendingUserRequest;
+
+use Auth;
+
 
 class ProfileController extends Controller
 {
-      public function index(Request $req)
+
+      public function AccountShow()
       {
-          $query = array('FullName'=>$req->FullName,'ShortName'=>$req->ShortName,'RegistrationNumber'=>$req->RegistrationNumber,
-          'Type'=>$req->Type,'Designation'=>$req->Designation,'Session'=>$req->Session,
-          'Section'=>$req->Section,'RoomNumber'=>$req,'PhoneNumber'=>$req->PhoneNumber,
-          'Photo'=>$req->Photo,'Email'=>$req->Email,'Password'=>$req->pwd,'RePassword'=>$req->rpwd);
-
-          Profile::insert($query);
-
+        $req = Profile::all();
+        return view('Web.Admin.Pages.AccountDelete.DeleteAccount')->with('req',$req);
       }
+
+      public function deleteAccount(Request $req)
+      {
+        Profile::where(['RegistrationNumber'=>$req->delete])->delete();
+        return redirect()->route('admin.delete.account');
+      }
+
 }

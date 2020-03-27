@@ -9,13 +9,18 @@
 
 @include('Web.Auth.Layouts.LogInNav')
 
-@if(Request::is('user/index'))
+@if(Request::is('/'))
   @include('Web.Auth.includes.LogInSection')
-@elseif(Request::is('user/index/request'))
+@elseif(Request::is('request'))
   @include('Web.Auth.includes.LogIntext')
 @endif
 
-@include('Web.Auth.Partials.footer')
+@if(Request::is('contact')||Request::is('contact'))
+  @yield('contact')
+@endif
+
+<br><br>
+@include('Web.Auth.Partials.ExtraFooter')
 
 @include('Web.Auth.Partials.JS')
 </body>

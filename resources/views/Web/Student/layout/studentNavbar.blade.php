@@ -1,7 +1,7 @@
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="{{ URL::to('author/student') }}">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="{{ route('Student') }}">
       <img src="{{ asset('Web\Logo\SUST.png') }}" alt="LOGO" width="50">
-      <span class="bg-light">Shahjala University of Science & Technology</span>
+      <span class="bg-dark">Shahjala University of Science & Technology</span>
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -14,29 +14,31 @@
           <a class="nav-link" href="{{ URL::to('author/student') }}">Home <span class="sr-only">(current)</span></a>
         </li>
       -->
-        <li class="nav-item">
-          <a class="nav-link" href="{{ URL::to('author/student/batch') }}">Home</a>
+        <li class="nav-item btn">
+          <a class="nav-link" href="{{ route('Student') }}">Home</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{ URL::to('author/student/FullRoutine') }}">Full Routine</a>
+        <li class="nav-item btn">
+          <a class="nav-link" href="{{ route('student.batch.routine') }}">Batch Routine</a>
         </li>
 
-        <li class="nav-item">
-          <a class="nav-link" href="{{ URL::to('author/student/Day') }}">Day Routine</a>
+        <li class="nav-item btn">
+          <a class="nav-link" href="{{ route('student.day.routine') }}">Daily Routine</a>
         </li>
       </ul>
 
       <ul class="navbar-nav ml-auto m-3">
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Raihan
+            <img src="{{ asset('Web/Pic/Auth/Raihan.jpg') }}" alt="Photo" width="30" class="rounded-circle mr-3">{{ Auth::guard('profile')->user()->FullName }}
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" href="#">Profile</a>
-            <a class="dropdown-item" href="#">Log Out</a>
+
+            <a href="{{ route('user.logout') }}" class="dropdown-item">Log Out</a>
+
             <a class="dropdown-item" href="#">Change Password</a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Contact</a>
+            <a class="dropdown-item" href="{{ route('student.contact') }}">Contact</a>
           </div>
         </li>
       </ul>

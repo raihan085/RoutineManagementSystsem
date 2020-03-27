@@ -5,11 +5,12 @@
 </head>
 <body>
 
-@include('Web.Teacher.layout.teacherNavbar')
+  @include('Web.Teacher.layout.extrateacherNavbar')
 
   @yield('body')
 
-  @include('Web.Teacher.Partials.footer')
+  <br><br><br>
+  @include('Web.Teacher.Partials.ExtraFooter')
 
   @include('Web.Teacher.Partials.JS')
 

@@ -4,28 +4,36 @@ namespace App\Http\Controllers\Web\Teacher;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Support\Facades\Auth;
+
 use App\Model\Web\Teacher\Teacher;
+use App\Model\Web\Teacher\UpdateTeacherRoutine;
+
 use Carbon\Carbon;
 
 class TeacherController extends Controller
 {
 
+    use AuthenticatesUsers;
+
     public function teacherDay()
     {
-      $day = 'Sunday';
-      //$day = Carbon::now()->format('l');
+      //$day = 'Sunday';
+      $day = Carbon::now()->format('l');
       $query = array('Day'=>$day);
-      $days = Teacher::where($query)->get();
+      $days = UpdateTeacherRoutine::where($query)->get();
 
       return view('Web.Teacher.Pages.RoutineDay')->with('days',$days);
     }
 
-    public function teacherName($name)
+    public function teacherName()
     {
-
+      $name = Auth::guard('profile')->user()->ShortName;
       $query = array('ShortName'=>$name);
 
-      $days = Teacher::where($query)->get();
+      $days = UpdateTeacherRoutine::where($query)->get();
 
       return view('Web.Teacher.Pages.RoutineName')->with('days',$days);
     }
@@ -37,12 +45,5 @@ class TeacherController extends Controller
       return view('Web.Teacher.Pages.fullRoutine')->with('days',$days);
     }
 
-/*    public function TeacherChangeClass($name,$day,$semester,$couresecode,$time)
-    {
-        if(Teacher::where('Day'=>$day,'YrToSe'=>$semster,'CourseCode'=>$coursecode,$time=>$time)->find() == null)
-        {
-          echo "class time avilable";
-        }
-    }
-    */
+
 }

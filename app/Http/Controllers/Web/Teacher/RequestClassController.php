@@ -32,16 +32,58 @@ class RequestClassController extends Controller
           }
         }
 
+        // search semester
+
+          $semester =  CheckSemester($CourseCode);  // Syllabus::where('CourseCode'=>$CourseCode)->value('Semester');
+
+          // check theory or lab
+          $TheoryOrLab = CheckTheoryOrLab($CourseCode);
+
         // search batch avilable
-          $query = array('Day'=>$day,$time=>$CourseCode,'Section'=>$Section) // like coursecode
-          $studentBatch = UpdateStudentRoutine::where($query)->get();
+          //$query = array('Day'=>$day,'YearToSemester'=>$semester,'Section'=>$Section,$time=>null);
 
        // check studentBtach variable is null or not
        // check step 4 of project paper matrix
 
-          if(UpdateStudentRoutine::where($query)->exists())
-          {
-            // then show this time is already booked for this batch.
+          if(CheckStudentAvilable($day,$semster,$Section,$time) == true && CheckRoomAvilable($day,$time,$TheoryOrLab))   // UpdateStudentRoutine::where($query)->exists()
+          {     // check student avilable kina && check room avilable kina
+
+
+
+            // searching age kothay chilo
+
+              $beforeQuery = array('Day'=>$day,'YearToSemester'=>$semester,'Section'=>$Section);
+              $Times = UpdateStudentRoutine::where($beforeQuery)->get();
+              flag = false;
+
+              foreach($Times as $Time)
+              {
+                $i = 0;
+                if(strpos($Time->$times[$i],$CourseCode)!==false) // string and sub string(courseCode) match korbe
+                {
+                  $time = $Time->$time[$i];
+                  // ager ta null kore bortoman ta update kore dibo
+
+                  UpdateTeacherRoutine::where('Day'=>)
+                  UpdateTeacherRoutine::
+
+                  UpdateStaffRoutine::
+                  UpdateStaffRoutine::
+
+                  UpdateStudentRoutine::
+                  UpdateStudentRoutine::
+
+                  flag = ture;
+                  break;
+                }
+                $i++;
+              }
+
+              if(flag != ture)
+              {
+
+              }
+
           }
           else { // searching this is theory or lab class from syllabus
                 // other wise
@@ -79,4 +121,52 @@ class RequestClassController extends Controller
               }
           }
     }
+
+
+    // sub function
+
+    public function CheckRoomAvilable($Day,$time,$TheoryOrLab)
+    {
+      $query = array('Day'=>$Day,$time=>null);
+
+      if(UpdateStaffRoutine::where($query)->exists())
+      {
+          $RoomLists = UpdateStaffRoutine::where($query)->get();
+
+          foreach($RoomLists as $RoomList)
+          {
+              if($RoomList->$time == null $$ $RoomList->TheoryOrLab == $TheoryOrLab)
+              {
+                return $RoomList->RoomNumber;
+              }
+          }
+      }
+      else {
+              return false;
+      }
+    }
+
+    public function CheckStudentAvilable($Day,$Semester,$Section,$time)
+    {
+      $query = array('Day'=>$Day,'YearToSemester'=>$Semester,'Section'=>$Section,$time=null);
+
+      if(UpdateStudentRoutine::where($query)->exists())
+      {
+        return true;
+      }
+      else {
+        return false;
+      }
+    }
+
+    public function CheckSemester($CourseCode)
+    {
+      return Syllabus::where('CourseCode'=>$CourseCode)->value('YearToSemester');
+    }
+
+    public function CheckTheoryOrLab($CourseCode)
+    {
+      return Syllabus::where('CourseCode'=>$CourseCode)->value('TheoryOrLab');
+    }
+
 }

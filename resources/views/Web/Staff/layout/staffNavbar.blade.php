@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-md navbar-light bg-light">
-    <a class="navbar-brand" href="{{ URL::to('/staff') }}">
+    <a class="navbar-brand" href="{{ route('Staff') }}">
       <img src="{{ asset('Web\Logo\SUST.png') }}" alt="LOGO" width="50">
       <span class="bg-light">Shahjala University of Science & Technology</span>
     </a>
@@ -15,25 +15,26 @@
         </li>
       -->
         <li class="nav-item">
-          <a class="nav-link" href="{{ URL::to('author/staff/Room/304') }}">Home</a>
+          <a class="nav-link" href="{{ route('Staff') }}">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{ URL::to('author/staff/FullRoutine') }}">Full Routine</a>
+          <a class="nav-link" href="{{ route('staff.room.number.routine',['roomNumber'=>'304']) }}">Self Routine</a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="{{ URL::to('author/staff/Day') }}">Daily Routine</a>
+          <a class="nav-link" href="{{ route('staff.day.routine') }}">Daily Routine</a>
         </li>
       </ul>
 
         <ul class="navbar-nav ml-auto">
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Name
+              {{ Auth::guard('profile')->user()->FullName }}
             </a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="{{ URl::to('my/profile') }}">My Profile</a>
-              <a class="dropdown-item" href="#">Log Out</a>
+              <a class="dropdown-item" href="#">My Profile</a>
+              <a href="{{ route('user.logout')}}" class="dropdown-item">Log Out</a>
+
               <a class="dropdown-item" href="#">Password Change</a>
               <div class="dropdown-divider"></div>
               <a class="dropdown-item" href="{{ URL::to('contact/admin') }}">Contact</a>

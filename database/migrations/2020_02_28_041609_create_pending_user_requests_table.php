@@ -15,6 +15,7 @@ class CreatePendingUserRequestsTable extends Migration
     {
         Schema::create('pending_user_requests', function (Blueprint $table) {
             $table->bigIncrements('id');
+
             $table->string('FullName');
             $table->string('ShortName')->nullable();
             $table->string('RegistrationNumber')->unique();
@@ -24,10 +25,10 @@ class CreatePendingUserRequestsTable extends Migration
             $table->string('Section')->nullable();
             $table->string('RoomNumber')->nullable();
             $table->string('PhoneNumber')->unique();
-            $table->string('Photo')->nullable();
+            $table->string('Photo')->default('defaultProfilePicture.png')->nullable();
             $table->string('Email')->unique();
-            $table->string('Password');
-            $table->string('RePassword');
+            $table->string('password');
+
             $table->timestamps();
         });
     }

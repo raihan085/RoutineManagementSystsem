@@ -1,7 +1,7 @@
 <div>
 <nav class="navbar navbar-expand-md bg-dark navbar-dark mb-5">
   <div class="container">
-    <a href="{{ URL::to('user/index') }}" class="navbar-brand">
+    <a href="{{ route('user.index') }}" class="navbar-brand">
       <img src="{{ asset('Web/Logo/SUST.png') }}" alt="LOGO" width="50">
       <span class="text">Shahjalal University of Science & Technology</span>
     </a>
@@ -10,19 +10,19 @@
     </button>
     <div class="collapse navbar-collapse" id="LogInnavbarNav">
 
-  @if (Request::is('user/index') || Request::is('user/joinus'))
+  @if (Request::is('/') || Request::is('joinus') || Request::is('contact')||Request::is('contact')))
         <ul class="nav navbar-nav ml-auto">
           <li class="nav-item">
-            <a href="{{ URL::to('user/index') }}" class="nav-link">Log In</a>
+            <a href="{{ route('user.index') }}" class="nav-link">Log In</a>
           </li>
           <li class="nav-item">
-            <a href="{{ URL::to('user/joinus') }}" class="nav-link">Join Us!</a>
+            <a href="{{ route('user.join.us') }}" class="nav-link">Join Us!</a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">Contact</a>
+            <a href="{{ route('user.contact') }}" class="nav-link">Contact</a>
           </li>
         </ul>
-     @else
+     @elseif(Request::is('request'))
         @yield('body')
     @endif
     </div>

@@ -6,5 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class UpdateTeacherRoutine extends Model
 {
-    //
+    protected $fillable = [
+      'Day',
+      'ShortName'
+    ];
 }

@@ -9,15 +9,17 @@
 
 
     <div class="container-fluid">
-      <div class="row">
-
-        <!-- sidebar -->
-          @include('Web.Admin.layout.sideBar')
-        <!-- end of side bar -->
+      <div class="row mt-2">
 
         <!-- top navbar -->
           @include('Web.Admin.layout.topNavBar')
         <!-- end of top navbar -->
+
+        <!-- sidebar -->
+         @include('Web.Admin.layout.sideBar')
+        <!-- end of side bar -->
+
+        @yield('body')
 
       </div>
 

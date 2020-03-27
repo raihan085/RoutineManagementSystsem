@@ -8,7 +8,8 @@
 
   @yield('body')
 
-  @include('Web.Student.Partials.footer')
+  <br><br><br>
+  @include('Web.Student.Partials.ExtraFooter')
 
   @include('Web.Student.Partials.JS')
 

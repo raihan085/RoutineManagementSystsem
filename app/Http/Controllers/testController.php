@@ -8,6 +8,8 @@ use App\Test;
 
 class testController extends Controller
 {
+
+    
     public function index(Request $req)
     {
       print_r($req->input());

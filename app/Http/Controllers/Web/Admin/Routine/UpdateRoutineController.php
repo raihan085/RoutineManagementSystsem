@@ -36,7 +36,7 @@ class UpdateRoutineController extends Controller
           UpdateStaffRoutine::insert($staffQuery); // insert all data from staff query
 
           // error if friday all update class routine delete
- 
+
       }
     }
 }
